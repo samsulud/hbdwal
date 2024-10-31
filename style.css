@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Bodoni Moda', serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(bday2.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Atur background size di desktop */
+}
+
+.container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 280px;
+    height: 360px;
+    position: absolute;
+    top: 100px;
+    left: 230px;
+    transition: 2s;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.block {
+    position: absolute;
+    top: 200px;
+    right: 600px;
+    perspective: 800px;
+}
+
+.outside, .inside {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.outside {
+    background-color: blanchedalmond;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.outside h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: salmon;
+    margin-bottom: 30px;
+}
+
+.inside {
+    background-color: rgb(255, 244, 79);
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+    transform: rotateY(180deg);
+}
+
+.inside h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.frames {
+    width: 400px;
+    height: 150px;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.8rem;
+
+    transform: rotateY(-230deg) rotateX(20deg);
+    position: absolute;
+}
+
+.frames img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+
+.frames p {
+    font-size: 20px;
+    font-weight: bold;
+    transform: rotateY(180deg);
+}
+
+.frames:nth-child(1) {
+    top: -110px;
+    z-index: -1;
+    background-color: coral;
+}
+
+.frames:nth-child(2) {
+    background-color: goldenrod;
+}
+
+.frames:nth-child(3) {
+    top: 100px;
+    background-color: burlywood;
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 600px) {
+    body {
+        height: auto; /* Mengatur tinggi otomatis agar sesuai dengan konten */
+        background-size: cover; /* Mengatur background untuk menutupi seluruh area */
+        background-position: center; /* Memastikan background tetap terpusat */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column; /* Mengubah layout ke kolom */
+        align-items: center; /* Rata tengah */
+        justify-content: center; /* Rata tengah vertikal */
+        height: 100%; /* Tinggi penuh */
+    }
+
+    .card {
+        width: 90%; /* Lebar kartu 90% di mobile */
+        height: auto; /* Tinggi otomatis */
+        position: relative; /* Ganti absolute untuk kontrol yang lebih baik */
+        top: 0; /* Reset posisi atas */
+        left: 0; /* Reset posisi kiri */
+        margin: 20px 0; /* Jarak antar kartu */
+    }
+
+    .block {
+        top: 0; /* Reset posisi untuk block */
+        right: auto; /* Reset posisi kanan */
+    }
+
+    .outside h1 {
+        font-size: 2rem; /* Mengurangi ukuran font di mobile */
+    }
+
+    .inside h3 {
+        font-size: 1rem; /* Mengurangi ukuran font di mobile */
+    }
+
+    .frames {
+        width: 90%; /* Lebar penuh untuk frames di mobile */
+        max-width: none; /* Menghapus batas maksimum lebar */
+        height: auto; /* Tinggi otomatis untuk responsif */
+        position: relative; /* Ganti absolute untuk kontrol lebih baik */
+        margin: 10px 0; /* Jarak vertikal antar frame */
+    }
+
+    .frames img {
+        width: 100px; /* Mengurangi ukuran gambar di mobile */
+        height: 100px; /* Mengurangi tinggi gambar di mobile */
+    }
+
+    .frames p {
+        font-size: 16px; /* Mengurangi ukuran font di mobile */
+    }
+    .circular-logo {
+        width: 100px; /* Sesuaikan sesuai kebutuhan */
+        height: 100px; /* Pastikan ini berbentuk kotak */
+        border-radius: 50%; /* Ini membuatnya menjadi bulat */
+        object-fit: cover; /* Memastikan gambar menutupi area */
+    }
+    
+}
